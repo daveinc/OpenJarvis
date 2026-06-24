@@ -174,9 +174,14 @@ def load_skill_markdown(path: str | Path) -> SkillManifest:
                 after = after[1:]
             markdown_content = after
 
-    # Default name to file stem if missing (preserves legacy behavior)
+    # Default name to file stem if missing.
+    # For SKILL.md files, use the parent directory name so HOD skills
+    # auto-name correctly without requiring frontmatter on every file.
     if "name" not in frontmatter:
-        frontmatter["name"] = path.stem
+        if path.name == "SKILL.md":
+            frontmatter["name"] = path.parent.name
+        else:
+            frontmatter["name"] = path.stem
     if "description" not in frontmatter:
         frontmatter["description"] = frontmatter.get("name", path.stem)
 
