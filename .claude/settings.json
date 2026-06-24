@@ -1,0 +1,21 @@
+{
+  "env": {
+    "PYTHONIOENCODING": "utf-8"
+  },
+  "permissions": {
+    "allow": [
+      "Bash",
+      "PowerShell",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebFetch"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\davei\\.claude\\skills",
+      "C:\\Users\\davei\\.claude\\projects"
+    ]
+  }
+}
