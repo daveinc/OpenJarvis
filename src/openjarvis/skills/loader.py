@@ -153,7 +153,7 @@ def load_skill_markdown(path: str | Path) -> SkillManifest:
     from openjarvis.skills.parser import SkillParseError, SkillParser
 
     path = Path(path)
-    raw = path.read_text(encoding="utf-8")
+    raw = path.read_text(encoding="utf-8-sig")  # utf-8-sig strips BOM if present
 
     frontmatter: dict = {}
     markdown_content = raw
